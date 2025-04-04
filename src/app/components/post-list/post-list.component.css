@@ -1,0 +1,60 @@
+/* Post List Component Styles */ 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+  transform: translateX(5px);
+  transition: transform 0.2s ease-in-out;
+}
+
+.post-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-title {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.post-preview {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-id {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .post-card {
+    margin-bottom: 1rem;
+  }
+  
+  .post-title {
+    font-size: 1.1rem;
+  }
+  
+  .post-preview {
+    font-size: 0.9rem;
+  }
+} 

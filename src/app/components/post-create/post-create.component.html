@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">Créer un post</h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="title" class="form-label">Titre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                formControlName="title"
+                [class.is-invalid]="postForm.get('title')?.invalid && postForm.get('title')?.touched">
+              <div class="invalid-feedback" *ngIf="postForm.get('title')?.errors?.['required']">
+                Titre requis
+              </div>
+              <div class="invalid-feedback" *ngIf="postForm.get('title')?.errors?.['minlength']">
+                Minimum 3 caractères
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="body" class="form-label">Contenu</label>
+              <textarea
+                class="form-control"
+                id="body"
+                rows="5"
+                formControlName="body"
+                [class.is-invalid]="postForm.get('body')?.invalid && postForm.get('body')?.touched">
+              </textarea>
+              <div class="invalid-feedback" *ngIf="postForm.get('body')?.errors?.['required']">
+                Contenu requis
+              </div>
+              <div class="invalid-feedback" *ngIf="postForm.get('body')?.errors?.['minlength']">
+                Minimum 10 caractères
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4>Comments</h4>
+              <div class="comments-section">
+                <div class="comment-item mb-3" *ngFor="let comment of comments; let i = index">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="mb-2">
+                        <label [for]="'email' + i" class="form-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          [id]="'email' + i"
+                          [(ngModel)]="comment.email"
+                          [ngModelOptions]="{standalone: true}">
+                      </div>
+                      <div class="mb-2">
+                        <label [for]="'commentBody' + i" class="form-label">Commentaire</label>
+                        <textarea
+                          class="form-control"
+                          [id]="'commentBody' + i"
+                          [(ngModel)]="comment.body"
+                          [ngModelOptions]="{standalone: true}">
+                        </textarea>
+                      </div>
+                      <button type="button" class="btn btn-danger btn-sm" (click)="removeComment(i)">
+                        Supprimer
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-secondary" (click)="addComment()">
+                  Ajouter
+                </button>
+              </div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">
+                Créer un post
+              </button>
+              <button type="button" class="btn btn-outline-secondary" (click)="cancel()">
+                Annuler
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+/* User Profile Component Styles */ 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.list-group-item {
+  transition: all 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+  transform: translateX(5px);
+}
+
+.text-truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-section {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.profile-header {
+  color: var(--dark-color);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-title {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.info-item {
+  margin-bottom: 0.75rem;
+  color: var(--secondary-color);
+}
+
+.info-label {
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.website-link {
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.website-link:hover {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.posts-section {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+}
+
+.post-item {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-item:hover {
+  background-color: var(--light-color);
+  transform: translateX(5px);
+}
+
+.post-title {
+  color: var(--dark-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.post-preview {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .profile-section,
+  .posts-section {
+    padding: 1.5rem;
+  }
+  
+  .profile-header {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-title {
+    font-size: 1rem;
+  }
+  
+  .post-item {
+    padding: 1rem;
+  }
+} 

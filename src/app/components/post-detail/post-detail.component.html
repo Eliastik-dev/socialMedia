@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div *ngIf="post" class="post-content">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <p class="post-body">{{ post.body }}</p>
+        <div *ngIf="user" class="mt-3">
+          <p class="mb-0">Posté par:
+            <a (click)="onUserClick(user.id)" class="author-link">
+              {{ user.name }}
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="comment-section">
+        <h3 class="mb-4">Commentaires</h3>
+        <div class="list-group">
+          <div *ngFor="let comment of comments" class="comment-item">
+            <h5 class="comment-name">{{ comment.name }}</h5>
+            <small class="comment-email">{{ comment.email }}</small>
+            <p class="comment-body">{{ comment.body }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
